@@ -13,9 +13,7 @@ export const submitOrder = createAsyncThunk(
   }
 );
 
-export const getOrders = createAsyncThunk('orders/getAll', async () =>
-  getOrdersApi()
-);
+export const getOrders = createAsyncThunk('orders/getAll', getOrdersApi);
 
 export const getOrderByNumber = createAsyncThunk(
   'order/get',
