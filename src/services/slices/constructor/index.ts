@@ -59,12 +59,13 @@ export const BurgerConstructorSlice = createSlice({
       action: PayloadAction<TConstructorIngredient>
     ) => {
       const currentIndex = state.constructorItems.ingredients.findIndex(
-        (item) => item._id === action.payload._id
+        (item) => item.id === action.payload.id
       );
       if (currentIndex < state.constructorItems.ingredients.length - 1) {
-        state.constructorItems.ingredients[currentIndex] =
-          state.constructorItems.ingredients[currentIndex + 1];
-        state.constructorItems.ingredients[currentIndex + 1] = action.payload;
+        const temp = state.constructorItems.ingredients[currentIndex + 1];
+        state.constructorItems.ingredients[currentIndex + 1] =
+          state.constructorItems.ingredients[currentIndex];
+        state.constructorItems.ingredients[currentIndex] = temp;
       }
     },
     clearIngredients: (state) => {
