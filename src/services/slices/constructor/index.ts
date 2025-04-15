@@ -46,7 +46,7 @@ export const BurgerConstructorSlice = createSlice({
       action: PayloadAction<TConstructorIngredient>
     ) => {
       const currentIndex = state.constructorItems.ingredients.findIndex(
-        (item) => item._id === action.payload._id
+        (item) => item.id === action.payload.id
       );
       if (currentIndex > 0) {
         state.constructorItems.ingredients[currentIndex] =
